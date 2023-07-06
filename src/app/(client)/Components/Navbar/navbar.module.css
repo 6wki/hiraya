@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: var(--light-pink);
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  box-shadow: 0 10px 30px -20px #000;
+  z-index: 99;
+  transition: 0.2s ease-in-out;
+}
+
+.scrollNavbar {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.NavbarContent {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container);
+}
+
+.NavbarContent h1 {
+  color: #000;
+  font-family: var(--italianaFont);
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.NavbarContent ul li {
+  list-style: none;
+}
+
+.navbarCategories {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

@@ -1,0 +1,40 @@
+.card {
+  background: linear-gradient(
+    260deg,
+    rgba(213, 180, 180, 1) 0%,
+    rgba(231, 157, 157, 1) 100%
+  );
+  width: 23.5rem;
+  height: 10rem;
+  border-radius: 1rem;
+  position: relative;
+  color: #fff;
+  position: relative;
+}
+
+.card h2 {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  font-size: 4.5rem;
+}
+
+.card p {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardImage {
+  position: absolute;
+  bottom: -1.1rem;
+  left: -1.1rem;
+  opacity: 0.2;
+}

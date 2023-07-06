@@ -1,0 +1,13 @@
+.dashboard h1 {
+  margin-bottom: 3rem;
+  font-weight: lighter;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.dashboard h4 {
+  margin-top: 10rem;
+  font-size: 2rem;
+  opacity: 0.3;
+  text-align: center;
+}

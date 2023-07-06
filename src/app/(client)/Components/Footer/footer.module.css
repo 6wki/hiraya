@@ -1,0 +1,8 @@
+.footer {
+  background: var(--dark-pink);
+  height: 100vh;
+}
+
+.footerContainer {
+  padding-top: 7.5rem;
+}

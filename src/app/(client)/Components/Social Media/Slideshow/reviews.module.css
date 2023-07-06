@@ -1,0 +1,48 @@
+.slideContainer {
+  height: 30rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.reviewPicture {
+  width: 3rem;
+  border-radius: 50%;
+  height: 3rem;
+}
+
+.slider {
+  width: 30rem;
+}
+
+.secondContainer {
+  width: 100%;
+  height: 13rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  padding-top: 0.5rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.6rem;
+}
+
+.bottom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}

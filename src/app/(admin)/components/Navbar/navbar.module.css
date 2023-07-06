@@ -1,0 +1,46 @@
+.navbar {
+  background-color: #272727;
+  width: 5rem;
+  height: 36rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 2rem;
+  padding: 1.3rem 0;
+  border-radius: 1.2rem;
+}
+
+.navbar ul li {
+  list-style: none;
+}
+
+.cn {
+  font-family: var(--italianaFont);
+  font-size: 2rem;
+  color: #fff;
+}
+
+.secondSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.navbar button {
+  background-color: transparent;
+  border: none;
+}
+
+.navbar a {
+  border-radius: 50%;
+  height: 3.5rem;
+  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

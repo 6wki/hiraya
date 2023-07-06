@@ -1,0 +1,18 @@
+.rules {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 50rem;
+  gap: 5rem;
+  padding-bottom: 7rem;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.box h2 {
+  margin-bottom: 2rem;
+}
