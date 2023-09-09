@@ -12,7 +12,8 @@
 .postsContainer {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 0.3rem;
 }
 
 .post {
@@ -50,4 +51,19 @@
   opacity: 0;
   transition: 0.4s;
   z-index: 8;
+}
+
+@media (max-width: 1181px) {
+  .postsContainer {
+    flex-wrap: wrap;
+  }
+
+  .post {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .titleMainIg {
+    font-size: 1rem;
+  }
 }

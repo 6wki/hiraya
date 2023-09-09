@@ -1,0 +1,22 @@
+.productListing {
+  width: 17rem;
+  margin-bottom: 4rem;
+  color: #000;
+  font-family: var(--poppings);
+}
+
+.productPicture {
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.name {
+  margin: 0.3rem 0;
+  font-weight: 600;
+}

@@ -11,7 +11,6 @@ export default function Home() {
       <Collections />
       <SocialMedia />
       <Rules />
-      <h1>333</h1>
     </main>
   );
 }

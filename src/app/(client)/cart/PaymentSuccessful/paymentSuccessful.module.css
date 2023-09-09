@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #f5ebeb;
+  z-index: 2;
+}
+
+.secondContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  text-align: center;
+  gap: 2rem;
+}
+
+.texts {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  font-family: var(--poppings);
+}
+
+.texts p {
+  color: #9e9e9e;
+}

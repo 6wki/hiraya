@@ -10,15 +10,16 @@
   box-shadow: 0 10px 30px -20px #000;
   z-index: 99;
   transition: 0.2s ease-in-out;
+  z-index: 99;
 }
 
 .scrollNavbar {
-  background-color: transparent;
   box-shadow: none;
+  background-color: transparent;
 }
 
 .NavbarContent {
-  padding: 1rem;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,4 +42,22 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.navbarCategories a {
+  color: #000;
+}
+
+.cart {
+  position: relative;
+}
+
+@media (max-width: 1181px) {
+  .navbarCategories {
+    display: none;
+  }
+
+  .NavbarContent {
+    padding: 1rem 2rem;
+  }
 }

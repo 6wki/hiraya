@@ -15,4 +15,15 @@
 
 .box h2 {
   margin-bottom: 2rem;
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 1181px) {
+  .rules {
+    flex-wrap: wrap;
+  }
+
+  .box {
+    width: 10rem;
+  }
 }

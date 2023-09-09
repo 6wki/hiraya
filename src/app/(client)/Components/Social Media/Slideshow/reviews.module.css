@@ -1,24 +1,36 @@
 .slideContainer {
-  height: 30rem;
+  height: 25rem;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: var(--italianaFont);
+}
+
+.blop {
+  position: absolute;
+  filter: blur(5.5rem);
+  z-index: -1;
+  bottom: 0;
+  right: 3rem;
+  transform: scale(1.5);
 }
 
 .reviewPicture {
-  width: 3rem;
+  width: 2.5rem;
   border-radius: 50%;
-  height: 3rem;
+  height: 2.5rem;
 }
 
 .slider {
   width: 30rem;
+  position: relative;
+  background-color: #ffffff36;
 }
 
 .secondContainer {
   width: 100%;
-  height: 13rem;
+  height: 158px;
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
@@ -45,4 +57,39 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.arrow {
+  width: 35px;
+  height: 35px;
+  background: #00000029;
+  border-radius: 50%;
+  border: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightArrow {
+  transform: rotate(180deg);
+  right: 1rem !important;
+}
+
+.leftArrow {
+  left: 1rem !important;
+}
+
+@media (max-width: 1181px) {
+  .slider {
+    width: 100%;
+  }
+
+  .secondContainer {
+    padding: unset;
+    padding-top: 0.5rem;
+  }
+
+  .top {
+    font-size: 0.8rem;
+  }
 }

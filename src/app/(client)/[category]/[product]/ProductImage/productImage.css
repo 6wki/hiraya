@@ -1,0 +1,112 @@
+.desktop,
+.mobile {
+  height: 100%;
+  width: 100%;
+}
+
+.desktop .mySwiper2 {
+  width: 400px;
+  height: 500px;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+.desktop .swiper-button-next,
+.desktop .swiper-button-prev {
+  scale: 0.7;
+}
+
+.desktop .swiper-horizontal .swiper-slide img {
+  object-fit: cover;
+}
+
+.desktop .mySwiper .swiper-slide img {
+  border-radius: 1rem;
+  border: 0.3rem solid transparent;
+  cursor: pointer;
+}
+
+.desktop .mySwiper .swiper-slide {
+  height: 92.5px;
+}
+
+.desktop .swiper-slide-thumb-active img {
+  border: 0.3rem solid var(--dark-pink) !important;
+}
+
+.mobile .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.mobile .swiper-slide::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  left: 0;
+  right: 0;
+  top: 80%;
+  bottom: 0;
+}
+
+.mobile .swiper-slide::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 70%;
+}
+
+.mobile .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile .mySwiper {
+  height: 70vh;
+}
+
+.mobile .swiper-pagination {
+  margin-bottom: 1.5rem;
+}
+
+.mobile .swiper-pagination-bullet {
+  background-color: #ffffff81;
+}
+.mobile .swiper-pagination-bullet-active {
+  background-color: #fff;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 1181px) {
+  .mobile {
+    display: unset;
+  }
+
+  .desktop {
+    display: none;
+  }
+}

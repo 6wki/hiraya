@@ -1,48 +1,67 @@
-import Redirect from "./Redirect/Redirect";
+"use client";
+
 import styles from "./navbar.module.css";
-import add from "@/../public/add.svg";
-import home from "@/../public/home.svg";
-import product from "@/../public/orders.svg";
-import orders from "@/../public/products.svg";
 import Image from "next/image";
+import Link from "next/link";
+import logo from "@/../public/hiraya.svg";
+// import { useEffect, useState } from "react";
+import AboveNavbar from "@/app/(client)/Components/Navbar/AboveNavbar/AboveNavbar";
+import shoppingCartIcon from "@/../public/shoppingCartIcon.svg";
+import { useEffect, useState } from "react";
+import ToggleNavbar from "@/app/(client)/Components/Navbar/ToggleNavbar/ToggleNavbar";
 import Logout from "../Logout/Logout";
-import ActiveLink from "@/app/lib/ActiveClass";
 
 const AdminNavbar = () => {
+  // Scrolling State
+
+  const [scroll, setScroll] = useState("");
+
+  const links = ["dashboard", "add", "orders"];
+  // Scrolling Function Animation
+
+  const scrolling = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      windowHeight > 30 ? setScroll("") : setScroll(styles.scrollNavbar);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrolling);
+    setScroll(styles.scrollNavbar);
+
+    return () => {
+      window.removeEventListener("scroll", scrolling);
+    };
+  }, []);
+
   return (
-    <nav className={styles.navbar}>
-      <ul>
-        <li>
-          <Redirect cn={styles.cn} />
-        </li>
-      </ul>
-      <ul className={styles.secondSection}>
-        <li>
-          <ActiveLink href="/admin/dashboard">
-            <Image src={home} height={30} width={30} alt="Home" />
-          </ActiveLink>
-        </li>
-        <li>
-          <ActiveLink href="/admin/add">
-            <Image src={add} height={30} width={30} alt="Add" />
-          </ActiveLink>
-        </li>
-        <li>
-          <ActiveLink href="/admin/products">
-            <Image src={product} height={30} width={30} alt="Products" />
-          </ActiveLink>
-        </li>
-        <li>
-          <ActiveLink href="/admin/orders">
-            <Image src={orders} height={30} width={30} alt="Orders" />
-          </ActiveLink>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <Logout />
-        </li>
-      </ul>
+    <nav className={`${styles.navbar} ${scroll} `}>
+      <AboveNavbar />
+      <div className={styles.NavbarContent}>
+        <ToggleNavbar links={links} />
+        <Link href="/">
+          <Image src={logo} width={100} height={0} alt="hiraya" />
+        </Link>
+        <ul className={styles.navbarCategories}>
+          <>
+            <Link href="/admin/dashboard">
+              <li>Dashboard</li>
+            </Link>
+            <Link href="/admin/add">
+              <li>Add Product</li>
+            </Link>
+            <Link href="/admin/orders">
+              <li>Orders</li>
+            </Link>
+          </>
+        </ul>
+        <ul>
+          <li>
+            <Logout />
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };

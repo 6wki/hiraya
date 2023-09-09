@@ -1,0 +1,94 @@
+.button {
+  margin-top: 1rem;
+  height: 3rem;
+}
+
+.productImage {
+  width: 14rem;
+  height: 17rem;
+  object-fit: cover;
+}
+
+.uploadArea,
+.uploadedArea {
+  border-radius: 14px;
+  border: 1.076px dashed #000;
+  background: rgba(255, 255, 255, 0);
+  width: 96px;
+  height: 96px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.uploadedArea {
+  border-color: #e89f9f;
+}
+
+.uploadArea input {
+  position: absolute;
+  background: red;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.8rem;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.uploadArea p {
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 0.9rem;
+  object-fit: cover;
+  padding: 0.3rem;
+}
+
+.deleteButton {
+  position: absolute;
+  background: #e89f9f;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  top: -18%;
+  right: -18%;
+}
+
+.deleteButton img {
+  padding: 0.3rem;
+  color: #fff;
+  width: 100%;
+}
+
+.upload {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 1181px) {
+  .imageContainer,
+  .upload {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,32 @@
+.sectionContainer {
+  display: flex;
+  width: 100%;
+}
+
+.paymentContainer {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+.paymentContainer > div {
+  width: 50%;
+}
+
+@media (max-width: 1181px) {
+  .paymentContainer {
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 3rem;
+  }
+
+  .paymentContainer > div {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .payment h1 {
+    margin-top: 1em;
+    padding: 0 1rem;
+  }
+}

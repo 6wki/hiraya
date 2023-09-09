@@ -12,7 +12,7 @@ const ActiveLink = ({
 
   const isActive = pathName === href;
   return (
-    <Link {...rest} className={isActive ? "active" : ""}>
+    <Link {...rest} className={isActive ? "activeLink" : ""}>
       {children}
     </Link>
   );

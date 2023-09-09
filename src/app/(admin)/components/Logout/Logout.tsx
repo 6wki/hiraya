@@ -1,13 +1,12 @@
 "use client";
 
 import { signOut } from "next-auth/react";
-import Image from "next/image";
-import logout from "@/../public/logout.svg";
+import styles from "./logout.module.css";
 
 const Logout = () => {
   return (
-    <button onClick={() => signOut()}>
-      <Image src={logout} height={40} width={40} alt="Orders" />
+    <button className={styles.logout} onClick={() => signOut()}>
+      <img src="/logout.png" alt="" />
     </button>
   );
 };

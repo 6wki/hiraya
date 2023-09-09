@@ -1,8 +1,25 @@
+import { FirestoreAdapter } from "@auth/firebase-adapter";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { cert } from "firebase-admin/app";
+import { Adapter } from "next-auth/adapters";
+import { auth } from "@/utils/firebase";
 
 export const authOptions: NextAuthOptions = {
+  // adapter: FirebaseAdapter(app),
+  adapter: FirestoreAdapter({
+    credential: cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY!.replace(/\\n/g, "\n"),
+    }),
+  }) as Adapter,
   // Configure one or more authentication providers
+  pages: {
+    signIn: "/login",
+  },
+
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
@@ -12,7 +29,11 @@ export const authOptions: NextAuthOptions = {
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        username: {
+          label: "Email",
+          type: "text",
+          placeholder: "helloworld@mail.fr",
+        },
         password: { label: "Password", type: "password" },
       },
       // async authorize(credentials, req) {
@@ -32,16 +53,35 @@ export const authOptions: NextAuthOptions = {
       //   } else return null;
       // },
       async authorize(credentials) {
-        const user = {
-          id: "1",
-          username: "Admin",
-          password: "admin@admin.com",
-        };
-        return user;
+        try {
+          // Sign in with email and password using Firebase
+          const userCredential = await signInWithEmailAndPassword(
+            auth,
+            (credentials as any).username,
+            (credentials as any).password
+          );
+
+          // If the login is successful, return the user object.
+          if (userCredential.user) {
+            console.log(userCredential.user.email);
+            return userCredential.user;
+
+            // return {
+            //   id: userCredential.user.uid,
+            //   email: userCredential.user.email, // Use email as username for simplicity
+            //   // Add other user data as needed
+            // };
+          } else {
+            // If login fails, return null.
+            return null;
+          }
+        } catch (error) {
+          // If there's an error (e.g., invalid credentials), return null.
+          return null;
+        }
       },
     }),
   ],
-
   session: {
     strategy: "jwt",
   },

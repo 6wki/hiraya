@@ -1,0 +1,9 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.secondContainer {
+  padding-bottom: 5rem;
+}

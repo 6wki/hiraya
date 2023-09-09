@@ -1,15 +1,17 @@
 "use client";
 
 import styles from "./navbar.module.css";
-import shoppingCartIcon from "@/../public/shoppingCartIcon.svg";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
 import logo from "@/../public/hiraya.svg";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import AboveNavbar from "@/app/(client)/Components/Navbar/AboveNavbar/AboveNavbar";
+import CartIcon from "./CartIcon/CartIcon";
+import shoppingCartIcon from "@/../public/shoppingCartIcon.svg";
+import { useEffect, useState } from "react";
+import ToggleNavbar from "./ToggleNavbar/ToggleNavbar";
 
-const ClientNavbar = async () => {
+const ClientNavbar = () => {
   // Scrolling State
 
   const [scroll, setScroll] = useState("");
@@ -23,8 +25,11 @@ const ClientNavbar = async () => {
     }
   };
 
+  const links = ["abaya", "khimar", "hijab"];
+
   useEffect(() => {
     window.addEventListener("scroll", scrolling);
+    setScroll(styles.scrollNavbar);
 
     return () => {
       window.removeEventListener("scroll", scrolling);
@@ -35,34 +40,35 @@ const ClientNavbar = async () => {
     <nav className={`${styles.navbar} ${scroll} `}>
       <AboveNavbar />
       <div className={styles.NavbarContent}>
+        <ToggleNavbar links={links} />
         <Link href="/">
           <Image src={logo} width={100} height={0} alt="hiraya" />
         </Link>
         <ul className={styles.navbarCategories}>
           <>
-            <button
-              onClick={() =>
-                signIn("email", {
-                  callbackUrl: "/admin/dashboard",
-                })
-              }
-            >
-              Sign In
-            </button>
-            <li>Abaya</li>
-            <li>Jilbab</li>
-            <li>Khimar</li>
+            <Link href="/abaya">
+              <li>Abaya</li>
+            </Link>
+            <Link href="/khimar">
+              <li>Khimar</li>
+            </Link>
+            <Link href="/jilbab">
+              <li>Jilbab</li>
+            </Link>
           </>
         </ul>
         <ul>
           <li>
-            <Image
-              src={shoppingCartIcon}
-              alt="Shopping Cart"
-              width={0}
-              height={0}
-              style={{ scale: "1.2", cursor: "pointer" }}
-            />
+            <Link href="/cart" className={styles.cart}>
+              <CartIcon />
+              <Image
+                src={shoppingCartIcon}
+                alt="Shopping Cart"
+                width={0}
+                height={0}
+                style={{ scale: "1.2", cursor: "pointer" }}
+              />
+            </Link>
           </li>
         </ul>
       </div>

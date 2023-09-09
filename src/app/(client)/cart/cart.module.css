@@ -1,0 +1,4 @@
+.containerOfCart {
+  display: flex;
+  justify-content: space-between;
+}
