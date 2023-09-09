@@ -9,9 +9,7 @@ import styles from "./login.module.css";
 import { useState } from "react";
 import LoadingAnimation from "../Components/LoadingAnimation/LoadingAnimation";
 
-export default function SignIn({
-  csrfToken,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function SignIn({ csrfToken }) {
   const [loading, setLoading] = useState(false); // State to track loading state
   const [error, setError] = useState(false); // State to track loading state
 
@@ -67,12 +65,4 @@ export default function SignIn({
       </div>
     </div>
   );
-}
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  return {
-    props: {
-      csrfToken: await getCsrfToken(context),
-    },
-  };
 }
