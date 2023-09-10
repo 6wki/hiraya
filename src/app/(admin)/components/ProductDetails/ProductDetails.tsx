@@ -332,7 +332,7 @@ const ProductDetails = () => {
           />
         )}
       /> */}
-      <QuillEditor onChange={handleEditorChange} />
+      <QuillEditor onChange={handleEditorChange} value={desc} />
       {/* Product Images */}
       <div className={styles.upload}>
         <div className="primary">

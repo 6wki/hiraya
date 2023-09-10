@@ -5,7 +5,7 @@ import Payment from "./Payment/Payment";
 import styles from "./cart.module.css";
 import CartInfo from "./CartInfo/CartInfo";
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <div className="containerAdjust topSpace">
       <div className={"containerSettings"}>
@@ -15,4 +15,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
+export default Page;

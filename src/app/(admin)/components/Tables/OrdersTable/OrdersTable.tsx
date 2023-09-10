@@ -149,8 +149,8 @@ const rows = [
   },
 ];
 
-export default function DataGridDemo({ orders }) {
-  const [ordersData, setOrdersData] = React.useState<Any[]>([]);
+export const DataGridDemo = ({ orders }: any) => {
+  const [ordersData, setOrdersData] = React.useState<any[]>([]);
 
   React.useEffect(() => {
     setOrdersData(
@@ -159,7 +159,7 @@ export default function DataGridDemo({ orders }) {
         id: prod.id,
 
         products: prod.products.map(
-          (prd) => ` ${prd.name} Qty: ${prd.quantity} Price: ${prd.price}`
+          (prd: any) => ` ${prd.name} Qty: ${prd.quantity} Price: ${prd.price}`
         ),
         address: `${prod.addressData.city} ${prod.addressData.postalCode} ${prod.addressData.Hausnummer}`,
         email: `${prod.addressData.email}`,
@@ -173,7 +173,7 @@ export default function DataGridDemo({ orders }) {
   const [openPopup, setOpenPopup] = React.useState(false);
   const [selectedRowData, setSelectedRowData] = React.useState<any>(null);
 
-  const handleRowClick = (params) => {
+  const handleRowClick = (params: any) => {
     setSelectedRowData(params.row);
     setOpenPopup(true);
   };
@@ -207,8 +207,8 @@ export default function DataGridDemo({ orders }) {
   const deleteOrder = async (id: string) => {
     try {
       await deleteChild("orders", id); // Delete the order from Firestore
-      setOrdersData(ordersData.map((row) => ({ ...row, ...orders })));
-      setOrdersData(ordersData.filter((row) => row.id !== id));
+      setOrdersData(ordersData.map((row: any) => ({ ...row, ...orders })));
+      setOrdersData(ordersData.filter((row: any) => row.id !== id));
       toast.success("Congratulations for finishing the order!");
       setShipped(false);
       handleClosePopup();
@@ -227,7 +227,7 @@ export default function DataGridDemo({ orders }) {
       }}
     >
       <DataGrid
-        getRowId={(row) => crypto.randomUUID()}
+        getRowId={(row: any) => crypto.randomUUID()}
         rows={ordersData}
         columns={columns}
         initialState={{
@@ -293,8 +293,8 @@ export default function DataGridDemo({ orders }) {
                     <p>
                       Products:{" "}
                       <ul>
-                        {selectedRowData.products.map((prd) => (
-                          <li>{prd}</li>
+                        {selectedRowData.products.map((prd: any) => (
+                          <li key={self.crypto.randomUUID()}>{prd}</li>
                         ))}
                       </ul>
                     </p>
@@ -349,4 +349,6 @@ export default function DataGridDemo({ orders }) {
       </Dialog>
     </Box>
   );
-}
+};
+
+export default DataGridDemo;

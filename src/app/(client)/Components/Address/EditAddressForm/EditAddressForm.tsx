@@ -17,7 +17,7 @@ type FormValues = {
   phoneNumber: number;
 };
 
-const EditAddressForm = ({ initialAddressData, onCancel }) => {
+const EditAddressForm = ({ initialAddressData, onCancel }: any) => {
   const [formData, setFormData] = useState(initialAddressData);
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ const EditAddressForm = ({ initialAddressData, onCancel }) => {
     reset,
   } = useForm<FormValues>();
 
-  const handleSubmit = (data) => {
+  const handleSubmit = (data: any) => {
     dispatch(setAddress(data));
     onCancel(); // Close the edit form after submission
   };

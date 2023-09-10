@@ -9,7 +9,7 @@ import { RootState } from "@/redux/store";
 import { clearCartItems, togglePaid } from "@/redux/slices/cartSlice";
 import { addOrder } from "@/utils/firebaseActions";
 import { selectAddress } from "@/redux/slices/addressSlice";
-import { POST } from "@/app/api/email/route";
+// import { POST } from "@/app/api/email/route";
 
 const PayPalPayment = () => {
   const totalPrice = useSelector((state: RootState) => state.auth.totalPrice);
@@ -23,15 +23,15 @@ const PayPalPayment = () => {
     products,
   };
 
-  const handlePaymentSuccess = (details, data) => {
+  const handlePaymentSuccess = (details: any, data: any) => {
     // Handle successful payment here (e.g., record the payment in your database).
     dispatch(togglePaid());
     addOrder("orders", order);
-    POST(order.addressData.email);
+    // POST(order.addressData.email);
     dispatch(clearCartItems());
   };
 
-  const createPayPalOrder = (data, actions) => {
+  const createPayPalOrder = (data: any, actions: any) => {
     // Set the amount dynamically here
     return actions.order.create({
       purchase_units: [
@@ -48,7 +48,7 @@ const PayPalPayment = () => {
   return (
     <PayPalScriptProvider
       options={{
-        "client-id": process.env.NEXT_PUBLIC_CLIENT_ID,
+        clientId: process.env.NEXT_PUBLIC_CLIENT_ID || "",
         currency: "EUR",
       }}
     >
@@ -59,8 +59,8 @@ const PayPalPayment = () => {
             style={{ layout: "horizontal" }}
             className={styles.checkout}
             createOrder={createPayPalOrder}
-            onApprove={(data, actions: any) => {
-              return actions.order.capture().then(function (details) {
+            onApprove={(data: any, actions: any) => {
+              return actions.order.capture().then(function (details: any) {
                 handlePaymentSuccess(details, data);
               });
             }}

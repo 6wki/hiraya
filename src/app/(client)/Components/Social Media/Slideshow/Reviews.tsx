@@ -47,7 +47,7 @@ const Slideshow = () => {
                     />
                     <span>@user123</span>
                   </div>
-                  <img src="/ratting.svg" />
+                  <img src="/ratting.svg" alt="ratting" />
                 </div>
                 <p className={styles.bottom}>this is really amazing</p>
               </div>
@@ -68,7 +68,7 @@ const Slideshow = () => {
                     />
                     <span>@user123</span>
                   </div>
-                  <img src="/ratting.svg" />
+                  <img src="/ratting.svg" alt="ratting" />
                 </div>
                 <p className={styles.bottom}>this is really amazing</p>
               </div>
@@ -89,7 +89,7 @@ const Slideshow = () => {
                     />
                     <span>@user123</span>
                   </div>
-                  <img src="/ratting.svg" />
+                  <img src="/ratting.svg" alt="ratting" />
                 </div>
                 <p className={styles.bottom}>this is really amazing</p>
               </div>

@@ -3,7 +3,6 @@
 import { useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -15,7 +14,7 @@ import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 
-export function DesktopImages({ data }) {
+export const DesktopImages = ({ data }: any) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
@@ -33,9 +32,9 @@ export function DesktopImages({ data }) {
         className="mySwiper2"
       >
         <SwiperSlide>
-          <img src={data.primary} />
+          <img src={data.primary} alt="product" />
         </SwiperSlide>
-        {data.secondary.map((img) => (
+        {data.secondary.map((img: any) => (
           <SwiperSlide key={img}>
             <img src={img} alt="product" />
           </SwiperSlide>
@@ -52,9 +51,9 @@ export function DesktopImages({ data }) {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src={data.primary} />
+          <img src={data.primary} alt="product" />
         </SwiperSlide>
-        {data.secondary.map((img) => (
+        {data.secondary.map((img: any) => (
           <SwiperSlide key={img}>
             <img src={img} alt="product" />
           </SwiperSlide>
@@ -62,9 +61,9 @@ export function DesktopImages({ data }) {
       </Swiper>
     </div>
   );
-}
+};
 
-export function MobileImages({ data }) {
+export const MobileImages = ({ data }: any) => {
   return (
     <div className="mobile">
       <Swiper
@@ -77,9 +76,9 @@ export function MobileImages({ data }) {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src={data.primary} />
+          <img src={data.primary} alt="product" />
         </SwiperSlide>
-        {data.secondary.map((img) => (
+        {data.secondary.map((img: any) => (
           <SwiperSlide key={img}>
             <img src={img} alt="product" />
           </SwiperSlide>
@@ -87,4 +86,4 @@ export function MobileImages({ data }) {
       </Swiper>
     </div>
   );
-}
+};

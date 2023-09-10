@@ -9,11 +9,11 @@ import styles from "./login.module.css";
 import { useState } from "react";
 import LoadingAnimation from "../Components/LoadingAnimation/LoadingAnimation";
 
-export default function SignIn({ csrfToken }) {
+const Page = ({ csrfToken }: never) => {
   const [loading, setLoading] = useState(false); // State to track loading state
   const [error, setError] = useState(false); // State to track loading state
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     setLoading(true); // Set loading to true when login starts
@@ -65,4 +65,6 @@ export default function SignIn({ csrfToken }) {
       </div>
     </div>
   );
-}
+};
+
+export default Page;

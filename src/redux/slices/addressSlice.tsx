@@ -11,10 +11,10 @@ interface Address {
   // Define your address fields here
   email: string;
   firstName: string;
-  lastName: string;
+  secondName: string;
   postalCode: string;
   city: string;
-  houseNumber: string;
+  Hausnummer: string;
   // Add other address fields
 }
 
@@ -41,7 +41,7 @@ const persistConfig = {
 };
 
 export const { setAddress } = addressSlice.actions;
-export const selectAddress = (state: { address: AddressState }) =>
+export const selectAddress = (state: { address: any }) =>
   state.address.addressData!;
 
 export const addressReducer = addressSlice.reducer;
