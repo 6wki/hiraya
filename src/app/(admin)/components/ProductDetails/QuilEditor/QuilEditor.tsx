@@ -24,6 +24,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({ onChange }) => {
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onChange]);
 
   return <div ref={quillRef}></div>;
