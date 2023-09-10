@@ -1,3 +1,5 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
+
 import React, { useEffect, useRef, useState } from "react";
 import Quill from "quill";
 import "quill/dist/quill.snow.css"; // Import Quill styles
@@ -24,7 +26,6 @@ const QuillEditor: React.FC<QuillEditorProps> = ({ onChange }) => {
         }
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onChange]);
 
   return <div ref={quillRef}></div>;

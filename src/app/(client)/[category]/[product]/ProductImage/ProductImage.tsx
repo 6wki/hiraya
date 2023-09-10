@@ -36,8 +36,8 @@ export function DesktopImages({ data }) {
           <img src={data.primary} />
         </SwiperSlide>
         {data.secondary.map((img) => (
-          <SwiperSlide>
-            <img src={img} />
+          <SwiperSlide key={img}>
+            <img src={img} alt="product" />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -55,8 +55,8 @@ export function DesktopImages({ data }) {
           <img src={data.primary} />
         </SwiperSlide>
         {data.secondary.map((img) => (
-          <SwiperSlide>
-            <img src={img} />
+          <SwiperSlide key={img}>
+            <img src={img} alt="product" />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -80,8 +80,8 @@ export function MobileImages({ data }) {
           <img src={data.primary} />
         </SwiperSlide>
         {data.secondary.map((img) => (
-          <SwiperSlide>
-            <img src={img} />
+          <SwiperSlide key={img}>
+            <img src={img} alt="product" />
           </SwiperSlide>
         ))}
       </Swiper>

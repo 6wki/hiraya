@@ -35,9 +35,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <head>
+      {/* <Head>
         <link rel="icon" href="/favicon.ico" />
-      </head>
+      </Head> */}
       <body className={inter.className}>
         <Providers session={session}>
           <ReduxProvider>
@@ -47,10 +47,7 @@ export default async function RootLayout({
                 noneAuthComponent={<ClientNavbar />}
               />
               {children}
-              <Options
-                noneAuthComponent={              <Footer />
-              }
-              />
+              <Options noneAuthComponent={<Footer />} />
             </QueryProviders>
           </ReduxProvider>
         </Providers>
