@@ -29,7 +29,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({ value, onChange }) => {
         }
       });
     }
-  }, [value]);
+  }, []);
 
   return <div ref={quillRef}></div>;
 };
