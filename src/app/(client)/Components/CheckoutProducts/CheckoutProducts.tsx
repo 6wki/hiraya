@@ -9,7 +9,7 @@ const CheckoutProducts = () => {
   return (
     <div>
       {state.map((product) => (
-        <div className={styles.product}>
+        <div key={product.id} className={styles.product}>
           <div className={styles.img}>
             <img src={product.primary} alt="" />
             <p className={styles.qty}>{product.quantity}</p>

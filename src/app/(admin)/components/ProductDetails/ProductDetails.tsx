@@ -53,7 +53,7 @@ const NumericFormatCustom = React.forwardRef<NumericFormatProps, CustomProps>(
   }
 );
 
-const productDetails = () => {
+const ProductDetails = () => {
   const {
     handleSubmit,
     getValues,
@@ -410,4 +410,4 @@ const productDetails = () => {
   );
 };
 
-export default productDetails;
+export default ProductDetails;
