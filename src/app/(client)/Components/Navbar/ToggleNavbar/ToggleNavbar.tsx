@@ -6,8 +6,14 @@ import "./toggleNavbar.css";
 
 const ToggleNavbar = ({ links }: any) => {
   const [open, setOpen] = useState(false);
+  const [updateState, setUpdateState] = useState(0);
 
   const openNavbar = () => {
+    setOpen(!open);
+  };
+
+  const update = () => {
+    setUpdateState((prev) => prev + 1);
     setOpen(!open);
   };
 
@@ -21,7 +27,7 @@ const ToggleNavbar = ({ links }: any) => {
 
   return (
     <div className="openNavMobile">
-      <input type="checkbox" id="checkbox" />
+      <input type="checkbox" id="checkbox" key={updateState} />
       <label onClick={openNavbar} htmlFor="checkbox" className="toggle">
         <div className="bar bar--top"></div>
         <div className="bar bar--middle"></div>
@@ -30,9 +36,11 @@ const ToggleNavbar = ({ links }: any) => {
       <div className={open ? "categories open" : "categories"}>
         <ul>
           {links.map((link: string) => (
-            <Link key={link} href={`/admin/${link}`}>
-              <li>{link} </li>
-            </Link>
+            <label onClick={update} htmlFor="checkbox">
+              <Link key={link} href={`/admin/${link}`}>
+                <li>{link} </li>
+              </Link>
+            </label>
           ))}
         </ul>
       </div>

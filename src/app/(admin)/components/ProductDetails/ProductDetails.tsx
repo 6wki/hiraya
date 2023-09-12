@@ -178,54 +178,54 @@ const ProductDetails = () => {
       name: "",
       price: "",
     });
-    // if (!primaryImage) {
-    //   alert("Primary image is required");
-    //   return;
-    // }
+    if (!primaryImage) {
+      alert("Primary image is required");
+      return;
+    }
 
-    // // Upload images and get URLs
-    // try {
-    //   setLoading(true); // Start loading
-    //   const uploadedUrls = await handleImageUpload();
+    // Upload images and get URLs
+    try {
+      setLoading(true); // Start loading
+      const uploadedUrls = await handleImageUpload();
 
-    //   // Filter out any undefined or empty values from uploadedUrls
-    //   const filteredUrls = uploadedUrls.filter((url) => url);
+      // Filter out any undefined or empty values from uploadedUrls
+      const filteredUrls = uploadedUrls.filter((url) => url);
 
-    //   const nameLowerCased = data.name.toLowerCase();
-    //   const formDataWithImages = {
-    //     // ...data,
-    //     name: nameLowerCased,
-    //     price: data.price,
-    //     desc: desc,
-    //     category: data.category,
-    //     primaryImg: uploadedUrls[0] || null,
-    //     secondary: filteredUrls.slice(1, 5),
-    //   };
-    //   // Save product data to Firebase collection
-    //   await addProduct("product", formDataWithImages);
-    //   setIsSuccess(true);
-    //   toast.success("Product added successfully!", {
-    //     onClose: () => setIsSuccess(false),
-    //   });
+      const nameLowerCased = data.name.toLowerCase();
+      const formDataWithImages = {
+        // ...data,
+        name: nameLowerCased,
+        price: data.price,
+        desc: desc,
+        category: data.category,
+        primaryImg: uploadedUrls[0] || null,
+        secondary: filteredUrls.slice(1, 5),
+      };
+      // Save product data to Firebase collection
+      await addProduct("product", formDataWithImages);
+      setIsSuccess(true);
+      toast.success("Product added successfully!", {
+        onClose: () => setIsSuccess(false),
+      });
 
-    //   // Clear image state and inputs values
-    //   setPrimaryImage(null);
-    //   setSecondaryImage([]);
-    //   reset({
-    //     category: "",
-    //     name: "",
-    //     price: "",
-    //   });
+      // Clear image state and inputs values
+      setPrimaryImage(null);
+      setSecondaryImage([]);
+      reset({
+        category: "",
+        name: "",
+        price: "",
+      });
 
-    //   // Clear Quill Editor
+      // Clear Quill Editor
 
-    //   setDesc("");
-    // } catch (error) {
-    //   console.error("Error adding product:", error);
-    //   toast.error("Error adding product. Please try again.");
-    // } finally {
-    //   setLoading(false); // Stop loading
-    // }
+      setDesc("");
+    } catch (error) {
+      console.error("Error adding product:", error);
+      toast.error("Error adding product. Please try again.");
+    } finally {
+      setLoading(false); // Stop loading
+    }
   };
 
   const handleEditorChange = (value: string) => {
