@@ -36,8 +36,8 @@ const ToggleNavbar = ({ links }: any) => {
       <div className={open ? "categories open" : "categories"}>
         <ul>
           {links.map((link: string) => (
-            <label onClick={update} htmlFor="checkbox">
-              <Link key={link} href={`/admin/${link}`}>
+            <label key={link} onClick={update} htmlFor="checkbox">
+              <Link href={`/admin/${link}`}>
                 <li>{link} </li>
               </Link>
             </label>
