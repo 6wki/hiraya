@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   padding-bottom: 3rem;
+  height: 80vh;
 }
 
 .secondContainer {
@@ -24,4 +25,10 @@
 
 .texts p {
   color: #9e9e9e;
+}
+
+@media (max-width: 1181px) {
+  .container {
+    margin-top: 5rem;
+  }
 }

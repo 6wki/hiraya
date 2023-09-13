@@ -16,7 +16,7 @@ const AdminNavbar = () => {
 
   const [scroll, setScroll] = useState("");
 
-  const links = ["dashboard", "add", "orders"];
+  const links = ["add", "orders"];
   // Scrolling Function Animation
 
   const scrolling = () => {

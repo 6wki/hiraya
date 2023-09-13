@@ -241,7 +241,14 @@ const ProductDetails = () => {
       }}
       onSubmit={handleSubmit(subForm)}
       autoComplete="off"
+      style={{
+        margin: "0 1rem",
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+      }}
     >
+      <h2 className="titleAdminSecond">Product Details</h2>
       {/* Product Name */}
       <Controller
         control={control}
@@ -260,12 +267,11 @@ const ProductDetails = () => {
             id="outlined-basic"
             label="Product Name"
             variant="outlined"
-            style={{ width: "100%" }}
+            style={{ width: "100%", margin: "0" }}
             helperText={errors.name && errors.name.message}
           />
         )}
       />
-
       {/* Product Price */}
       <Controller
         control={control}
@@ -284,7 +290,7 @@ const ProductDetails = () => {
             }}
             variant="outlined"
             helperText={errors.price && errors.price.message}
-            style={{ width: "100%" }}
+            style={{ width: "100%", margin: "0" }}
           />
         )}
       />
@@ -303,7 +309,7 @@ const ProductDetails = () => {
             label="Category"
             error={!!errors.category}
             helperText={errors.category && errors.category.message}
-            style={{ width: "100%" }}
+            style={{ width: "100%", margin: "0" }}
           >
             {currencies.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -333,6 +339,7 @@ const ProductDetails = () => {
         )}
       /> */}
       <QuillEditor onChange={handleEditorChange} value={desc} />
+      <h2 className="titleAdminSecond">Product Images</h2>
       {/* Product Images */}
       <div className={styles.upload}>
         <div className="primary">

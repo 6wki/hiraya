@@ -381,3 +381,21 @@
 .doneSecondButton:active {
   transform: scale(0.95);
 }
+
+@media (max-width: 1181px) {
+  .popupContainer {
+    flex-direction: column;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .left {
+    width: unset;
+  }
+}

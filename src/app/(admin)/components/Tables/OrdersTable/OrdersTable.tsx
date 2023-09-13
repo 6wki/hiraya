@@ -2,24 +2,13 @@
 
 import * as React from "react";
 import Box from "@mui/material/Box";
-import {
-  DataGrid,
-  GridColDef,
-  GridValueGetterParams,
-  useGridApiRef,
-} from "@mui/x-data-grid";
+import { DataGrid, GridColDef, useGridApiRef } from "@mui/x-data-grid";
 import { Dialog, DialogContent } from "@mui/material";
 import styles from "./orderTable.module.css";
 import { deleteChild } from "@/utils/firebaseActions";
 import { toast } from "react-toastify";
 
 const columns: GridColDef[] = [
-  {
-    field: "id",
-    headerName: "Id",
-    width: 200,
-  },
-
   {
     field: "costumer",
     headerName: "From",
@@ -62,90 +51,6 @@ const columns: GridColDef[] = [
     field: "status",
     headerName: "Status",
     width: 150,
-  },
-];
-
-const rows = [
-  {
-    id: 1,
-    product: "Snow",
-    quantity: "58",
-    adresse: "Tlemcen, 13086",
-    amount: "$265",
-    date: "03/02/2023",
-    status: "Done",
-  },
-  {
-    id: 2,
-    product: "Lannister",
-    quantity: "89",
-    adresse: "Tlemcen, 13086",
-    amount: "$265",
-    date: "03/02/2023",
-    status: "Done",
-  },
-  {
-    id: 3,
-    product: "Lannister",
-    quantity: "87",
-    adresse: "Tlemcen, 13086",
-    amount: "$265",
-    date: "03/02/2023",
-    status: "Done",
-  },
-  {
-    id: 4,
-    product: "Stark",
-    quantity: "25",
-    adresse: "Tlemcen, 13086",
-    amount: "$265",
-    date: "03/02/2023",
-    status: "Done",
-  },
-  {
-    id: 5,
-    product: "Targaryen",
-    quantity: "35",
-    adresse: "Tlemcen, 13086",
-    amount: "265€",
-    date: "03/02/2023",
-    status: "Done",
-  },
-  {
-    id: 6,
-    product: "Melisandre",
-    quantity: "54",
-    adresse: "Tlemcen, 13086",
-    amount: "265€",
-    date: "03/02/2023",
-    status: "Done",
-  },
-  {
-    id: 7,
-    product: "Clifford",
-    quantity: "25",
-    adresse: "Tlemcen, 13086",
-    amount: "265€",
-    date: "03/02/2023",
-    status: "Done",
-  },
-  {
-    id: 8,
-    product: "Frances",
-    quantity: "38",
-    adresse: "Tlemcen, 13086",
-    amount: "265€",
-    date: "03/02/2023",
-    status: "Done",
-  },
-  {
-    id: 9,
-    product: "Roxie",
-    quantity: "88",
-    adresse: "Tlemcen, 13086",
-    amount: "265€",
-    date: "03/02/2023",
-    status: "Done",
   },
 ];
 

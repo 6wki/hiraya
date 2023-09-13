@@ -31,7 +31,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({ value, onChange }) => {
     }
   }, []);
 
-  return <div ref={quillRef}></div>;
+  return <div style={{ margin: "0" }} ref={quillRef}></div>;
 };
 
 export default dynamic(() => Promise.resolve(QuillEditor), {

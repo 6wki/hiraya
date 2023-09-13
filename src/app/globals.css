@@ -210,6 +210,7 @@ main {
 
 .ql-toolbar {
   width: 100% !important;
+  margin: 0 !important;
 }
 
 .ql-container {
@@ -224,5 +225,11 @@ main {
 
   .titleAdmin {
     margin-top: 3rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .titleAdminSecond {
+    margin: 1rem 0;
   }
 }

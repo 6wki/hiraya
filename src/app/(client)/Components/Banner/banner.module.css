@@ -110,7 +110,7 @@
 
   .bannerContainer {
     margin: 0;
-    height: 100vh;
+    height: calc(100vh - 41px);
     border-radius: 0;
   }
 
