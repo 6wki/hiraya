@@ -13,6 +13,7 @@ import { Metadata } from "next";
 import ClientNavbar from "@/app/(client)/Components/Navbar/Navbar";
 import Options from "./lib/Options";
 import AdminNavbar from "./(admin)/components/Navbar/Navbar";
+import NProgressComponent from "./(client)/Components/Progressbar/Progressbar";
 
 export const metadata: Metadata = {
   title: "Hiraya",
@@ -42,6 +43,7 @@ export default async function RootLayout({
         <Providers session={session}>
           <ReduxProvider>
             <QueryProviders>
+              <NProgressComponent />
               <Options
                 authComponent={<AdminNavbar />}
                 noneAuthComponent={<ClientNavbar />}
