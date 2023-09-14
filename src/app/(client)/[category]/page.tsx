@@ -16,7 +16,7 @@ export default async function ProductDetail({
   return (
     <div className="containerAdjust topSpace">
       <div className={"containerSettings"}>
-        <h1>{params.category}</h1>
+        <h1 className={styles.title}>{params.category}</h1>
         <div className="separator"></div>
         <div className={styles.firstContainer}>
           <div className={styles.secondContainer}>

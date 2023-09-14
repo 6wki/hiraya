@@ -20,3 +20,9 @@
   margin: 0.3rem 0;
   font-weight: 600;
 }
+
+@media (max-width: 1181px) {
+  .productListing {
+    margin-bottom: unset;
+  }
+}
