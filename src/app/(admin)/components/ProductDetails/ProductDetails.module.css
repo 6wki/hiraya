@@ -61,6 +61,12 @@
   padding: 0.3rem;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .deleteButton {
   position: absolute;
   background: #e89f9f;
@@ -86,6 +92,21 @@
   gap: 2rem;
 }
 
+.formContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.headerTitle {
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+}
+
 @media (max-width: 1181px) {
   .imageContainer,
   .upload {
@@ -95,5 +116,14 @@
   .button {
     width: 100% !important;
     margin: 0 !important;
+  }
+
+  .form {
+    max-width: 88vw;
+    overflow: hidden;
+  }
+
+  .headerTitle {
+    width: 88vw;
   }
 }

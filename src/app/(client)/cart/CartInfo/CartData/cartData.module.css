@@ -112,6 +112,7 @@
   .pricesContainer,
   .title {
     padding: 0 1rem;
+    margin-top: 3rem;
   }
 
   .checkoutButton {

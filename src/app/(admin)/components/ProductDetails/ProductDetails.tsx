@@ -234,93 +234,93 @@ const ProductDetails = () => {
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        "& > :not(style)": { m: 1, width: "25ch" },
-      }}
-      onSubmit={handleSubmit(subForm)}
-      autoComplete="off"
-      style={{
-        margin: "0 1rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
-      }}
-    >
-      <h2 className="titleAdminSecond">Product Details</h2>
-      {/* Product Name */}
-      <Controller
-        control={control}
-        name="name"
-        rules={{
-          required: "Product name is required",
-          minLength: {
-            value: 3,
-            message: "Product name must be at least 3 characters",
-          },
+    <div className={styles.formContainer}>
+      <div className={styles.headerTitle}>
+        <h1 className="titleAdmin">Add a product</h1>
+      </div>
+
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "25ch" },
         }}
-        render={({ field }) => (
-          <TextField
-            {...field}
-            error={!!errors.name}
-            id="outlined-basic"
-            label="Product Name"
-            variant="outlined"
-            style={{ width: "100%", margin: "0" }}
-            helperText={errors.name && errors.name.message}
-          />
-        )}
-      />
-      {/* Product Price */}
-      <Controller
-        control={control}
-        name="price"
-        rules={{
-          required: "Product price is required",
-        }}
-        render={({ field }) => (
-          <TextField
-            {...field}
-            error={!!errors.price}
-            label="Price"
-            id="formatted-numberformat-input"
-            InputProps={{
-              inputComponent: NumericFormatCustom as any,
-            }}
-            variant="outlined"
-            helperText={errors.price && errors.price.message}
-            style={{ width: "100%", margin: "0" }}
-          />
-        )}
-      />
-      {/* Product Category */}
-      <Controller
-        control={control}
-        name="category"
-        rules={{
-          required: "Select a category barak allah fiki",
-        }}
-        render={({ field }) => (
-          <TextField
-            {...field}
-            id="outlined-select-currency"
-            select
-            label="Category"
-            error={!!errors.category}
-            helperText={errors.category && errors.category.message}
-            style={{ width: "100%", margin: "0" }}
-          >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        )}
-      />
-      {/* Product Description */}
-      {/* <Controller
+        onSubmit={handleSubmit(subForm)}
+        autoComplete="off"
+        className={styles.form}
+      >
+        <h2 className="titleAdminSecond">Product Details</h2>
+        {/* Product Name */}
+        <Controller
+          control={control}
+          name="name"
+          rules={{
+            required: "Product name is required",
+            minLength: {
+              value: 3,
+              message: "Product name must be at least 3 characters",
+            },
+          }}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              error={!!errors.name}
+              id="outlined-basic"
+              label="Product Name"
+              variant="outlined"
+              style={{ width: "100%", margin: "0" }}
+              helperText={errors.name && errors.name.message}
+            />
+          )}
+        />
+        {/* Product Price */}
+        <Controller
+          control={control}
+          name="price"
+          rules={{
+            required: "Product price is required",
+          }}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              error={!!errors.price}
+              label="Price"
+              id="formatted-numberformat-input"
+              InputProps={{
+                inputComponent: NumericFormatCustom as any,
+              }}
+              variant="outlined"
+              helperText={errors.price && errors.price.message}
+              style={{ width: "100%", margin: "0" }}
+            />
+          )}
+        />
+        {/* Product Category */}
+        <Controller
+          control={control}
+          name="category"
+          rules={{
+            required: "Select a category barak allah fiki",
+          }}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              id="outlined-select-currency"
+              select
+              label="Category"
+              error={!!errors.category}
+              helperText={errors.category && errors.category.message}
+              style={{ width: "100%", margin: "0" }}
+            >
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          )}
+        />
+        {/* Product Description */}
+        {/* <Controller
         control={control}
         name="description"
         rules={{
@@ -338,82 +338,85 @@ const ProductDetails = () => {
           />
         )}
       /> */}
-      <QuillEditor onChange={handleEditorChange} value={desc} />
-      <h2 className="titleAdminSecond">Product Images</h2>
-      {/* Product Images */}
-      <div className={styles.upload}>
-        <div className="primary">
-          <p>Primary</p>
-          <div className="products-images">
-            <div
-              className={primaryImage ? styles.uploadedArea : styles.uploadArea}
-            >
-              {primaryImage ? (
-                <>
+        <QuillEditor onChange={handleEditorChange} value={desc} />
+        <h2 className="titleAdminSecond">Product Images</h2>
+        {/* Product Images */}
+        <div className={styles.upload}>
+          <div className="primary">
+            <p>Primary</p>
+            <div className="products-images">
+              <div
+                className={
+                  primaryImage ? styles.uploadedArea : styles.uploadArea
+                }
+              >
+                {primaryImage ? (
+                  <>
+                    <img
+                      className={styles.image}
+                      src={URL.createObjectURL(primaryImage)}
+                      alt="Uploaded"
+                    />
+                    <div
+                      className={styles.deleteButton}
+                      onClick={handleImageDeletePrimaryImage}
+                    >
+                      {/* <Trash2 /> */}
+                      <img src="/trash.svg" alt="" />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* <UploadIcon /> */}
+                    <input
+                      type="file"
+                      accept=".jpg,.jpeg,.png"
+                      onChange={handleImageUploadPrimaryImage}
+                    />
+                    <p>Add Images</p>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className={styles.secondary}>
+            <p>Secondary</p>
+            <div className={styles.imageContainer}>
+              {secondaryImage.map((image, index) => (
+                <div className={styles.uploadedArea} key={index}>
                   <img
                     className={styles.image}
-                    src={URL.createObjectURL(primaryImage)}
-                    alt="Uploaded"
+                    src={URL.createObjectURL(image)}
+                    alt={`Uploaded ${index}`}
                   />
                   <div
                     className={styles.deleteButton}
-                    onClick={handleImageDeletePrimaryImage}
+                    onClick={() => handleImageDeleteSecondaryImage(index)}
                   >
                     {/* <Trash2 /> */}
                     <img src="/trash.svg" alt="" />
                   </div>
-                </>
-              ) : (
-                <>
+                </div>
+              ))}
+              {secondaryImage.length < maxImages && (
+                <div className={styles.uploadArea}>
                   {/* <UploadIcon /> */}
                   <input
                     type="file"
                     accept=".jpg,.jpeg,.png"
-                    onChange={handleImageUploadPrimaryImage}
+                    onChange={handleImageUploadSecondaryImage}
                   />
                   <p>Add Images</p>
-                </>
+                </div>
               )}
             </div>
           </div>
         </div>
-        <div className={styles.secondary}>
-          <p>Secondary</p>
-          <div className={styles.imageContainer}>
-            {secondaryImage.map((image, index) => (
-              <div className={styles.uploadedArea} key={index}>
-                <img
-                  className={styles.image}
-                  src={URL.createObjectURL(image)}
-                  alt={`Uploaded ${index}`}
-                />
-                <div
-                  className={styles.deleteButton}
-                  onClick={() => handleImageDeleteSecondaryImage(index)}
-                >
-                  {/* <Trash2 /> */}
-                  <img src="/trash.svg" alt="" />
-                </div>
-              </div>
-            ))}
-            {secondaryImage.length < maxImages && (
-              <div className={styles.uploadArea}>
-                {/* <UploadIcon /> */}
-                <input
-                  type="file"
-                  accept=".jpg,.jpeg,.png"
-                  onChange={handleImageUploadSecondaryImage}
-                />
-                <p>Add Images</p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-      <button className={`pinkyButton ${styles.button}`} disabled={loading}>
-        {loading ? <CircularProgress size={20} /> : "Add Product"}
-      </button>
-    </Box>
+        <button className={`pinkyButton ${styles.button}`} disabled={loading}>
+          {loading ? <CircularProgress size={20} /> : "Add Product"}
+        </button>
+      </Box>
+    </div>
   );
 };
 

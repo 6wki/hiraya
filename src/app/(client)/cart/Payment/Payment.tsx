@@ -28,7 +28,7 @@ const Payment = () => {
       } else {
         return (
           <div className={styles.payment}>
-            <h1>Payment</h1>
+            <h1 className={styles.title}>Payment</h1>
             <div className="separator" />
             <div className={styles.paymentContainer}>
               <CartForm />
