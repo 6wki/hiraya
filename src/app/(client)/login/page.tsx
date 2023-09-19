@@ -34,7 +34,7 @@ const Page = ({ csrfToken }: never) => {
       // Authentication successful, you can redirect or handle as needed
       console.log("Authentication successful");
       // Redirect to /admin/dashboard upon successful login
-      window.location.href = "/admin/dashboard";
+      window.location.href = "/admin/orders";
     }
   };
 

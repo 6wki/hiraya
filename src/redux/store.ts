@@ -5,6 +5,7 @@ import { persistReducer } from "redux-persist";
 import { cartReducer } from "./slices/cartSlice";
 import storage from "./storage";
 import { addressReducer } from "./slices/addressSlice";
+import { counterReducer } from "./slices/toggleState";
 
 const authPersistConfig = {
   key: "auth",
@@ -12,13 +13,14 @@ const authPersistConfig = {
 };
 
 const addressPersistConfig = {
-  key: "auth",
+  key: "address",
   storage,
 };
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, cartReducer),
   address: persistReducer(addressPersistConfig, addressReducer),
+  counter: counterReducer,
 });
 
 export const store = configureStore({

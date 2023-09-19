@@ -68,6 +68,10 @@
 }
 
 @media (max-width: 1181px) {
+  .collectionsContainer {
+    margin: 0 1rem;
+  }
+
   .collections {
     flex-wrap: wrap;
   }
@@ -75,10 +79,5 @@
   .collection {
     width: 100%;
     height: 15rem;
-    border-radius: 0;
-  }
-
-  .collection img {
-    border-radius: 0;
   }
 }

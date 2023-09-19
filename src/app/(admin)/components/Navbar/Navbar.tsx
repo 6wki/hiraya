@@ -10,6 +10,8 @@ import shoppingCartIcon from "@/../public/shoppingCartIcon.svg";
 import { useEffect, useState } from "react";
 import ToggleNavbar from "@/app/(client)/Components/Navbar/ToggleNavbar/ToggleNavbar";
 import Logout from "../Logout/Logout";
+import { useDispatch } from "react-redux";
+import { open, update } from "@/redux/slices/toggleState";
 
 const AdminNavbar = () => {
   // Scrolling State
@@ -35,12 +37,19 @@ const AdminNavbar = () => {
     };
   }, []);
 
+  const dispatch = useDispatch();
+
+  const handleUpdate = () => {
+    dispatch(open());
+    dispatch(update());
+  };
+
   return (
     <nav className={`${styles.navbar} ${scroll} `}>
       <AboveNavbar />
       <div className={styles.NavbarContent}>
         <ToggleNavbar links={links} />
-        <Link href="/">
+        <Link onClick={handleUpdate} href="/">
           <Image src={logo} width={100} height={0} alt="hiraya" />
         </Link>
         <ul className={styles.navbarCategories}>
@@ -57,7 +66,7 @@ const AdminNavbar = () => {
           </>
         </ul>
         <ul>
-          <li>
+          <li onClick={handleUpdate}>
             <Logout />
           </li>
         </ul>

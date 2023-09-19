@@ -3,40 +3,47 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import "./toggleNavbar.css";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import { open, update } from "@/redux/slices/toggleState";
 
 const ToggleNavbar = ({ links }: any) => {
-  const [open, setOpen] = useState(false);
-  const [updateState, setUpdateState] = useState(0);
+  const isOpen = useSelector((state: RootState) => state.counter.value);
+  const updateState = useSelector((state: RootState) => state.counter.update);
+  const dispatch = useDispatch();
 
-  const openNavbar = () => {
-    setOpen(!open);
+  const handleToggle = () => {
+    // Dispatch the update action
+    dispatch(open());
+    console.log("updated");
+    console.log(isOpen);
   };
 
-  const update = () => {
-    setUpdateState((prev) => prev + 1);
-    setOpen(!open);
+  const handleUpdate = () => {
+    dispatch(open());
+    dispatch(update());
   };
 
   useEffect(() => {
-    if (open) {
+    if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
-  }, [open]);
+  }, [isOpen]);
 
   return (
     <div className="openNavMobile">
       <input type="checkbox" id="checkbox" key={updateState} />
-      <label onClick={openNavbar} htmlFor="checkbox" className="toggle">
+      <label onClick={handleToggle} htmlFor="checkbox" className="toggle">
         <div className="bar bar--top"></div>
         <div className="bar bar--middle"></div>
         <div className="bar bar--bottom"></div>
       </label>
-      <div className={open ? "categories open" : "categories"}>
+      <div className={isOpen ? "categories open" : "categories"}>
         <ul>
           {links.map((link: string) => (
-            <label key={link} onClick={update} htmlFor="checkbox">
+            <label key={link} onClick={handleUpdate} htmlFor="checkbox">
               <Link href={`/admin/${link}`}>
                 <li>{link} </li>
               </Link>

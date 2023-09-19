@@ -10,6 +10,8 @@ import CartIcon from "./CartIcon/CartIcon";
 import shoppingCartIcon from "@/../public/shoppingCartIcon.svg";
 import { useEffect, useState } from "react";
 import ToggleNavbar from "./ToggleNavbar/ToggleNavbar";
+import { useDispatch } from "react-redux";
+import { open, update } from "@/redux/slices/toggleState";
 
 const ClientNavbar = () => {
   // Scrolling State
@@ -36,12 +38,19 @@ const ClientNavbar = () => {
     };
   }, []);
 
+  const dispatch = useDispatch();
+
+  const handleUpdate = () => {
+    dispatch(open());
+    dispatch(update());
+  };
+
   return (
     <nav className={`${styles.navbar} ${scroll} `}>
       <AboveNavbar />
       <div className={styles.NavbarContent}>
         <ToggleNavbar links={links} />
-        <Link href="/">
+        <Link href="/" onClick={handleUpdate}>
           <Image src={logo} width={100} height={0} alt="hiraya" />
         </Link>
         <ul className={styles.navbarCategories}>

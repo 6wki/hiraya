@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { DataGrid, GridColDef, useGridApiRef } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Dialog, DialogContent } from "@mui/material";
 import styles from "./orderTable.module.css";
 import { deleteChild } from "@/utils/firebaseActions";
@@ -99,8 +99,6 @@ export const DataGridDemo = ({ orders }: any) => {
 
   const [yesOrNo, setYesOrNo] = React.useState(false);
 
-  const apiRef = useGridApiRef();
-
   const doneFunction = () => {
     setYesOrNo(true);
   };
@@ -155,13 +153,6 @@ export const DataGridDemo = ({ orders }: any) => {
         <DialogContent>
           {selectedRowData && (
             <div className={styles.popupContainer}>
-              <div className={styles.left}>
-                <img
-                  className={styles.img}
-                  src={selectedRowData.primary}
-                  alt=""
-                />
-              </div>
               <div className={styles.right}>
                 <div className={styles.header}>
                   <h1>Order Details</h1>
@@ -197,23 +188,24 @@ export const DataGridDemo = ({ orders }: any) => {
                   <div className={styles.informations}>
                     <p>
                       Products:{" "}
-                      <ul>
+                      <ol className={styles.products}>
                         {selectedRowData.products.map((prd: any) => (
                           <li key={self.crypto.randomUUID()}>{prd}</li>
                         ))}
-                      </ul>
+                      </ol>
                     </p>
                     <p>
-                      Costumer Name: <span>{selectedRowData.product}</span>
+                      Costumer Name:
+                      <br />
+                      <span className={styles.info}>
+                        {selectedRowData.costumer}
+                      </span>
                     </p>
                     <p>
-                      Address: <span>{selectedRowData.product}</span>
-                    </p>
-                    <p>
-                      Amount: <span>{selectedRowData.product}</span>
-                    </p>
-                    <p>
-                      Quantity: <span>{selectedRowData.product}</span>
+                      Address: <br />
+                      <span className={styles.info}>
+                        {selectedRowData.address}
+                      </span>
                     </p>
                   </div>
                 )}

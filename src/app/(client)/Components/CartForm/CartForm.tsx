@@ -67,10 +67,10 @@ const CartForm = () => {
               control={control}
               name="firstName"
               rules={{
-                required: "First name is required",
+                required: "Vorname is required",
                 minLength: {
                   value: 3,
-                  message: "First name must be at least 3 characters",
+                  message: "Vorname must be at least 3 characters",
                 },
               }}
               render={({ field }) => (
@@ -78,7 +78,7 @@ const CartForm = () => {
                   {...field}
                   error={!!errors.firstName}
                   id="outlined-basic"
-                  label="First Name"
+                  label="Vorname"
                   variant="outlined"
                   style={{ width: "100%" }}
                   helperText={errors.firstName && errors.firstName.message}
@@ -89,10 +89,10 @@ const CartForm = () => {
               control={control}
               name="secondName"
               rules={{
-                required: "Second name is required",
+                required: "Nachname is required",
                 minLength: {
                   value: 3,
-                  message: "Second name must be at least 3 characters",
+                  message: "Nachname must be at least 3 characters",
                 },
               }}
               render={({ field }) => (
@@ -100,7 +100,7 @@ const CartForm = () => {
                   {...field}
                   error={!!errors.secondName}
                   id="outlined-basic"
-                  label="Second Name"
+                  label="Nachname"
                   variant="outlined"
                   style={{ width: "100%" }}
                   helperText={errors.secondName && errors.secondName.message}
@@ -112,10 +112,10 @@ const CartForm = () => {
             control={control}
             name="city"
             rules={{
-              required: "City is required",
+              required: "Stadt is required",
               minLength: {
                 value: 3,
-                message: "City must be at least 3 characters",
+                message: "Stadt must be at least 3 characters",
               },
             }}
             render={({ field }) => (
@@ -123,7 +123,7 @@ const CartForm = () => {
                 {...field}
                 error={!!errors.city}
                 id="outlined-basic"
-                label="City"
+                label="Stadt"
                 variant="outlined"
                 style={{ width: "100%" }}
                 helperText={errors.city && errors.city.message}
@@ -157,10 +157,10 @@ const CartForm = () => {
               control={control}
               name="postalCode"
               rules={{
-                required: "Code postal is required",
+                required: "Postleitzahl is required",
                 minLength: {
                   value: 3,
-                  message: "Code postal must be at least 3 characters",
+                  message: "Postleitzahl must be at least 3 characters",
                 },
               }}
               render={({ field }) => (
@@ -168,7 +168,7 @@ const CartForm = () => {
                   {...field}
                   error={!!errors.postalCode}
                   id="outlined-basic"
-                  label="Code postal"
+                  label="Postleitzahl"
                   variant="outlined"
                   style={{ width: "100%" }}
                   helperText={errors.postalCode && errors.postalCode.message}

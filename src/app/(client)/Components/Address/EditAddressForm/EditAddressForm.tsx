@@ -87,7 +87,7 @@ const EditAddressForm = ({ initialAddressData, onCancel }: any) => {
                 {...field}
                 error={!!errors.firstName}
                 id="outlined-basic"
-                label="First Name"
+                label="Vorname"
                 variant="outlined"
                 style={{ width: "100%" }}
                 helperText={errors.firstName && errors.firstName.message}
@@ -110,7 +110,7 @@ const EditAddressForm = ({ initialAddressData, onCancel }: any) => {
                 {...field}
                 error={!!errors.secondName}
                 id="outlined-basic"
-                label="Second Name"
+                label="Nachname"
                 variant="outlined"
                 style={{ width: "100%" }}
                 helperText={errors.secondName && errors.secondName.message}

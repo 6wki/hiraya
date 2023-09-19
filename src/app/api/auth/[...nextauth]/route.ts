@@ -63,7 +63,6 @@ export const authOptions: NextAuthOptions = {
 
           // If the login is successful, return the user object.
           if (userCredential.user) {
-            console.log(userCredential.user.email);
             return userCredential.user;
 
             // return {
