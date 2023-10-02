@@ -7,7 +7,7 @@ const page = async () => {
   return (
     <div className="containerAdjust topSpace">
       <div className="containerSettingsAdmin">
-        <h1 className="titleAdmin">Orders</h1>
+        <h1 className="titleAdmin">Aufträge</h1>
         <DataGridDemo orders={orders} />
       </div>
     </div>

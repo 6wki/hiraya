@@ -55,13 +55,13 @@ const AdminNavbar = () => {
         <ul className={styles.navbarCategories}>
           <>
             <Link href="/admin/dashboard">
-              <li>Dashboard</li>
+              <li>Armaturenbrett</li>
             </Link>
             <Link href="/admin/add">
-              <li>Add Product</li>
+              <li>Produkt hinzufügen</li>
             </Link>
             <Link href="/admin/orders">
-              <li>Orders</li>
+              <li>Aufträge</li>
             </Link>
           </>
         </ul>

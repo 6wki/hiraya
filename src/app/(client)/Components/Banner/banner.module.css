@@ -35,6 +35,7 @@
   margin-bottom: 5rem;
   margin-top: 8rem;
   font-weight: 100;
+  font-family: var(--italianaFont);
 }
 
 .bannerInfo button {

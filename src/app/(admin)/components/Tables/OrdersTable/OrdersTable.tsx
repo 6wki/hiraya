@@ -3,15 +3,21 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { Dialog, DialogContent } from "@mui/material";
+import { Dialog, DialogContent, TextField } from "@mui/material";
 import styles from "./orderTable.module.css";
 import { deleteChild } from "@/utils/firebaseActions";
 import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { Controller } from "react-hook-form";
+
+type FormValues = {
+  verfolgungscode: string;
+};
 
 const columns: GridColDef[] = [
   {
     field: "costumer",
-    headerName: "From",
+    headerName: "Der Kunde",
     width: 200,
   },
   // {
@@ -22,7 +28,7 @@ const columns: GridColDef[] = [
   // },
   {
     field: "address",
-    headerName: "Address",
+    headerName: "Adress",
     width: 250,
   },
   //   Modify this one later and make it functioning
@@ -37,13 +43,13 @@ const columns: GridColDef[] = [
   //   },
   {
     field: "amount",
-    headerName: "Amount",
+    headerName: "Menge",
     type: "string",
     width: 110,
   },
   {
     field: "date",
-    headerName: "Date",
+    headerName: "Datum",
     type: "string",
     width: 150,
   },
@@ -64,9 +70,10 @@ export const DataGridDemo = ({ orders }: any) => {
         id: prod.id,
 
         products: prod.products.map(
-          (prd: any) => ` ${prd.name} Qty: ${prd.quantity} Price: ${prd.price}`
+          (prd: any) =>
+            `${prd.name}<br> Quantity ${prd.quantity}<br> Price ${prd.price}€`
         ),
-        address: `${prod.addressData.city} ${prod.addressData.postalCode} ${prod.addressData.Hausnummer}`,
+        address: `${prod.addressData.city}, ${prod.addressData.postalCode}, ${prod.addressData.Hausnummer}`,
         email: `${prod.addressData.email}`,
         status: "Pending",
         amount: prod.products.length,
@@ -74,6 +81,14 @@ export const DataGridDemo = ({ orders }: any) => {
       }))
     );
   }, []);
+
+  const {
+    handleSubmit,
+    getValues,
+    control,
+    formState: { errors },
+    reset,
+  } = useForm<FormValues>();
 
   const [openPopup, setOpenPopup] = React.useState(false);
   const [selectedRowData, setSelectedRowData] = React.useState<any>(null);
@@ -155,16 +170,16 @@ export const DataGridDemo = ({ orders }: any) => {
             <div className={styles.popupContainer}>
               <div className={styles.right}>
                 <div className={styles.header}>
-                  <h1>Order Details</h1>
+                  <h1>Bestelldetails</h1>
                   <p className={styles.status}>
-                    {shipped ? "Shipped" : "Pending"}
+                    {shipped ? "Ausgeliefert" : "Ausstehend"}
                     <span
                       className={shipped ? styles.shipped : styles.pending}
                     />
                   </p>
                 </div>
                 <div className="checkbox">
-                  <p>Shipped?</p>
+                  <p>Ausgeliefert?</p>
                   <label className={styles.planeSwitch}>
                     <input type="checkbox" onClick={settingShippedStatus} />
                     <div>
@@ -187,26 +202,51 @@ export const DataGridDemo = ({ orders }: any) => {
                 ) : (
                   <div className={styles.informations}>
                     <p>
-                      Products:{" "}
+                      Produkte:{" "}
                       <ol className={styles.products}>
                         {selectedRowData.products.map((prd: any) => (
-                          <li key={self.crypto.randomUUID()}>{prd}</li>
+                          <li
+                            dangerouslySetInnerHTML={{ __html: prd }}
+                            key={self.crypto.randomUUID()}
+                          />
                         ))}
                       </ol>
                     </p>
                     <p>
-                      Costumer Name:
+                      Kundenname:
                       <br />
                       <span className={styles.info}>
                         {selectedRowData.costumer}
                       </span>
                     </p>
                     <p>
-                      Address: <br />
+                      Adress: <br />
                       <span className={styles.info}>
                         {selectedRowData.address}
                       </span>
                     </p>
+                    {shipped && (
+                      <Controller
+                        control={control}
+                        name="verfolgungscode"
+                        rules={{
+                          required: "Verfolgungscode is required",
+                        }}
+                        render={({ field }) => (
+                          <TextField
+                            {...field}
+                            error={!!errors.verfolgungscode}
+                            id="outlined-basic"
+                            label="Verfolgungscode"
+                            variant="outlined"
+                            helperText={
+                              errors.verfolgungscode &&
+                              errors.verfolgungscode.message
+                            }
+                          />
+                        )}
+                      />
+                    )}
                   </div>
                 )}
 
@@ -214,7 +254,10 @@ export const DataGridDemo = ({ orders }: any) => {
                   {shipped && (
                     <>
                       {!yesOrNo ? (
-                        <button onClick={doneFunction} className={styles.done}>
+                        <button
+                          onClick={handleSubmit(doneFunction)}
+                          className={styles.done}
+                        >
                           Done <img src="/done.svg" alt="" />
                         </button>
                       ) : (
