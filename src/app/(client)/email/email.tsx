@@ -49,9 +49,10 @@ export const NikeReceiptEmail = () => (
             alt="Nike"
             style={{ margin: "auto", marginBottom: "1rem" }}
           />
-          <Heading style={global.heading}>It's On Its Way.</Heading>
+          <Heading style={global.heading}>It&apos;s On Its Way.</Heading>
           <Text style={global.text}>
-            You order's is on its way. Use the link above to track its progress.
+            You order&apos;s is on its way. Use the link above to track its
+            progress.
           </Text>
           <Text style={{ ...global.text, marginTop: 24 }}>
             We´ve also charged your payment method for the cost of your order
@@ -79,7 +80,8 @@ export const NikeReceiptEmail = () => (
             </Column>
             <Column style={{ verticalAlign: "top", paddingLeft: "12px" }}>
               <Text style={{ ...paragraph, fontWeight: "500" }}>
-                Brazil 2022/23 Stadium Away Women's Nike Dri-FIT Soccer Jersey
+                Brazil 2022/23 Stadium Away Women&apos;s Nike Dri-FIT Soccer
+                Jersey
               </Text>
               <Text style={global.text}>Size L (12–14)</Text>
             </Column>
@@ -205,7 +207,7 @@ export const NikeReceiptEmail = () => (
           </Row>
           <Text style={{ ...footer.text, paddingTop: 30, paddingBottom: 30 }}>
             Please contact us if you have any questions. (If you reply to this
-            email, we won't be able to see it.)
+            email, we won&apos;t be able to see it.)
           </Text>
           <Text style={footer.text}>
             © 2023 Hiraya, Inc. All Rights Reserved.
