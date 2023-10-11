@@ -16,7 +16,7 @@ const CartIcon = () => {
   const cartItems = useSelector((state: RootState) => state.auth.cartItems);
 
   return (
-    <div>
+    <div className={styles.notificationContainer}>
       {isClient ? (
         <>
           {cartItems.length === 0 ? (
